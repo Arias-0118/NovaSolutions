@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaSolutions</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <h1>NovaSolutions</h1>
+
+    <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#services">Servicios</a></li>
+        <li><a href="#contact">Contacto</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="badge">🚀 Desarrollo Web & Software</span>
+
+        <h1>
+            Transformamos ideas <br>
+            en soluciones digitales
+        </h1>
+
+        <p>
+            Creamos aplicaciones web modernas, rápidas y personalizadas
+            para impulsar tu negocio.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#contact">
+                <button class="btn-primary">
+                    Empezar proyecto
+                </button>
+            </a>
+
+            <a href="#services">
+                <button class="btn-secondary">
+                    Ver servicios
+                </button>
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SERVICIOS -->
+<section class="services" id="services">
+
+    <h2>Nuestros Servicios</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <img src="{% static 'img/Stok1.png' %}">
+            <h3>Inventarios</h3>
+            <p>Sistemas modernos de control y gestión de inventario.</p>
+        </div>
+
+        <div class="card">
+            <img src="{% static 'img/Tkinter.png' %}">
+            <h3>Apps Empresariales</h3>
+            <p>Software personalizado para empresas y negocios.</p>
+        </div>
+
+        <div class="card">
+            <img src="{% static 'img/Captura.png' %}">
+            <h3>Páginas Web</h3>
+            <p>Landing pages y aplicaciones web modernas.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACTO -->
+<section class="contact" id="contact">
+
+    <h2>Hablemos</h2>
+
+    <form method="POST" id="contact-form">
+
+        {% csrf_token %}
+
+        <input 
+            type="text"
+            name="nombre"
+            placeholder="Nombre"
+            required
+        >
+
+        <input
+            type="email"
+            name="correo"
+            placeholder="Correo electrónico"
+            required
+        >
+
+        <textarea
+            name="mensaje"
+            placeholder="Cuéntanos sobre tu proyecto"
+            required
+        ></textarea>
+
+        <button type="submit">
+            Enviar mensaje
+        </button>
+
+        {% if mensaje_enviado %}
+
+        <p style="margin-top:20px;color:#38bdf8;">
+            ✅ Mensaje enviado correctamente
+        </p>
+
+        {% endif %}
+
+    </form>
+</section>
+
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>
