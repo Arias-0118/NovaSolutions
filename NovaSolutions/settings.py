@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -136,3 +137,14 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'novasolutionsfka@gmail.com'
 
 EMAIL_HOST_PASSWORD = 'zkfc xfed jhut bvez'
+
+
+import os
+
+STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'web/static'),
+]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
